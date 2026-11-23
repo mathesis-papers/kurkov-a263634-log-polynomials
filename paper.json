@@ -28,9 +28,9 @@
         "name": "Wenlin Zhang"
       }
     ],
-    "concept_doi": null,
+    "concept_doi": "10.5281/zenodo.24412936",
     "current_version": 2,
-    "doi": null,
+    "doi": "10.5281/zenodo.24412937",
     "lean_source": {
       "revision": "6a3b29c88128eeed17f731783f03e7f9ff92ae62",
       "url": "https://github.com/the-omega-institute/trureturing/blob/6a3b29c88128eeed17f731783f03e7f9ff92ae62/D5/S3/Combinatorics/PowerSeries/KurkovA263634LogPolynomials.lean"

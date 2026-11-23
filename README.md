@@ -5,13 +5,15 @@
 We give an alternative proof of Mikhail Kurkov's conjecture in OEIS A263634, FORMULA of 30 March 2025 (entry revision #166, 5 November 2025), identifying its all-column array as a specialization of the Leonov–Shiryaev product-cumulant theorem (1959). The quotient method appears in xpaul (2019), and IV_ (2020) connects its first column to logarithmic polynomials. For Kurkov's quadratic recursive array we establish R(n,k)=(n-1)![t^(n-1)]F^(k)(t)/F(t), where F(t)=1+sum_(i>=1)x_i t^i/i!. Differentiating these quotients gives the recurrence directly. We also rederive classical coefficient and Appell identities, correct a factorial normalization in the source's Appell comments, and recover the exponential-polynomial exception of Craven and Csordas (1994).
 
 - PDF: [frozen public file](paper.pdf)
+- DOI: [https://doi.org/10.5281/zenodo.24412937](https://doi.org/10.5281/zenodo.24412937)
+- Concept DOI: [https://doi.org/10.5281/zenodo.24412936](https://doi.org/10.5281/zenodo.24412936)
 - License: CC-BY-4.0
 - Version: 2
 - Mathesis record: [kurkov-a263634-log-polynomials](https://mathesis-omega-research.apps.chrono-ai.fun/papers/kurkov-a263634-log-polynomials?version=2)
 
 ## How to cite
 
-Haobo Ma, Wenlin Zhang (2026). An alternative proof of Kurkov's logarithmic-polynomial recursion and its Leonov–Shiryaev interpretation. Mathesis, version 2. https://mathesis-omega-research.apps.chrono-ai.fun/papers/kurkov-a263634-log-polynomials?version=2
+Haobo Ma, Wenlin Zhang (2026). An alternative proof of Kurkov's logarithmic-polynomial recursion and its Leonov–Shiryaev interpretation. Mathesis, version 2. https://doi.org/10.5281/zenodo.24412937
 
 ## Statement progress
 
