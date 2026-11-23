@@ -1,0 +1,74 @@
+{
+  "status": "pass",
+  "arithmetic": "exact rational sparse polynomial arithmetic",
+  "all_column_identity": {
+    "rows": [
+      1,
+      10
+    ],
+    "columns": [
+      1,
+      6
+    ],
+    "cases": 60
+  },
+  "first_column_logarithm_and_partition_formula": {
+    "rows": [
+      1,
+      10
+    ]
+  },
+  "monomial_counts": [
+    1,
+    2,
+    3,
+    5,
+    7,
+    11,
+    15,
+    22,
+    30,
+    42
+  ],
+  "integral_coefficients_and_row_sums": {
+    "rows": [
+      1,
+      10
+    ]
+  },
+  "constant_variable_stirling_specialization": {
+    "rows": [
+      1,
+      10
+    ]
+  },
+  "moment_and_appell_recurrences": {
+    "degrees": [
+      0,
+      9
+    ]
+  },
+  "oeis_A263634_revision_166_initial_coefficients": 44,
+  "signed_A130850_eulerian_specialization": {
+    "degrees": [
+      0,
+      9
+    ]
+  },
+  "cycle_bell_lah_substitutions": {
+    "rows": [
+      1,
+      7
+    ],
+    "families": 3
+  },
+  "exponential_polynomial_normalization_and_appell_example": {
+    "rows": [
+      1,
+      10
+    ],
+    "double_zero_at": -1,
+    "third_appell_polynomial": "z^3 - 3*z - 2 = (z+1)^2*(z-2)"
+  },
+  "scope": "Finite polynomial identities; the general statements have the written proofs in note.pdf."
+}

@@ -1,0 +1,15 @@
+{
+  "id": "kurkov-a263634-log-polynomials",
+  "revision": 2,
+  "problem_ids": ["kurkov-a263634-log-polynomials"],
+  "topic": "Kurkov's universal quadratic recursion for logarithmic polynomials",
+  "title": "An alternative proof of Kurkov's logarithmic-polynomial recursion and its Leonov–Shiryaev interpretation",
+  "creators": [
+    {"name": "Haobo Ma", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Wenlin Zhang", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "We give an alternative proof of Mikhail Kurkov's conjecture in OEIS A263634, FORMULA of 30 March 2025 (entry revision #166, 5 November 2025), identifying its all-column array as a specialization of the Leonov–Shiryaev product-cumulant theorem (1959). The quotient method appears in xpaul (2019), and IV_ (2020) connects its first column to logarithmic polynomials. For Kurkov's quadratic recursive array we establish R(n,k)=(n-1)![t^(n-1)]F^(k)(t)/F(t), where F(t)=1+sum_(i>=1)x_i t^i/i!. Differentiating these quotients gives the recurrence directly. We also rederive classical coefficient and Appell identities, correct a factorial normalization in the source's Appell comments, and recover the exponential-polynomial exception of Craven and Csordas (1994).",
+  "summary": "An alternative formal-series proof of Kurkov's logarithmic-polynomial recursion in every positive column, with its classical Leonov–Shiryaev mixed-cumulant interpretation, coefficient and Appell consequences, corrected power-sum normalization, and the known exponential-polynomial exception to simple Appell zeros.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/6a3b29c88128eeed17f731783f03e7f9ff92ae62/D5/S3/Combinatorics/PowerSeries/KurkovA263634LogPolynomials.lean"
+}

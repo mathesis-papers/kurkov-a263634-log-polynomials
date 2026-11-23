@@ -1,0 +1,47 @@
+{
+  "problem_id": "kurkov-a263634-log-polynomials",
+  "posing_source": {
+    "url": "https://oeis.org/A263634/internal",
+    "revision": 166,
+    "revision_date": "2025-11-05",
+    "conjecture_date": "2025-03-30",
+    "poser": "Mikhail Kurkov",
+    "section": "FORMULA",
+    "statement": "R(1,k)=x_k; R(n,k)=R(n-1,k+1)-sum_(j=1..n-1) binom(n-2,j-1)R(j,k)R(n-j,1), n>=2, k>=1; R(n,1)=L_n where log(1+sum_(i>=1)x_i t^i/i!)=sum_(n>=1)L_n t^n/n!."
+  },
+  "written_proofs": [
+    {"location": "Theorem 1", "statement": "R(n,k)=(n-1)![t^(n-1)]F^(k)/F for every n,k>=1 over any commutative rational algebra.", "mechanism": "The quotients Q_k=F^(k)/F satisfy Q_k'=Q_(k+1)-Q_k Q_1; coefficient extraction and simultaneous induction give the array."},
+    {"location": "Section 1, Classical mixed-cumulant interpretation", "statement": "R(n,k)=kappa(Z^k,Z,...,Z), with n-1 copies of Z and the unital formal functional Phi(Z^i)=x_i. The two-factor product-cumulant identity gives the exact binomial recurrence by counting subsets of n-2 labels.", "attribution": "Leonov–Shiryaev (1959); Beuman–Turner–Vitelli (2012), Appendix A, (A10)–(A15); Burchardt (2018), Section 1.2 and Theorem 1.9."},
+    {"location": "Section 2", "statement": "Partition coefficient formula; term counts, row sums, Stirling specialization, moment/Appell identities, reciprocal formula, six cycle/Bell/Lah substitutions, Faber scaling, matrix conjugation, signed A130850 specialization."},
+    {"location": "Section 3", "statement": "L_n=-(n-1)!sum_j rho_j^(-n) for n>=2 for the canonical product with zero Gaussian factor; a Gaussian factor changes L_2 by -2a."},
+    {"location": "Section 3", "statement": "F=(1-t)e^t gives P_3(z)=(z+1)^2(z-2). More generally F=e^(beta t)p(t) with deg(p)=d gives multiplicity n-d at -beta for n>d.", "attribution": "Exponential-polynomial exception: Craven and Csordas (1994), Proposition 4.1(2)."}
+  ],
+  "classical_sources": [
+    {"authors": "V. P. Leonov and A. N. Shiryaev", "year": 1959, "url": "https://doi.org/10.1137/1104031", "coverage": "Product-cumulant theorem; algebraic formulation in Burchardt, Theorem 1.9."},
+    {"authors": "T. H. Beuman, A. M. Turner and V. Vitelli", "year": 2012, "url": "https://arxiv.org/abs/1211.0993v1", "locator": "Appendix A, (A10)–(A15)", "coverage": "Two-factor product-cumulant identity and proof."},
+    {"authors": "Adam Burchardt", "year": 2018, "url": "https://arxiv.org/abs/1803.09322v1", "locator": "Section 1.2, (3); Section 1.5, Theorem 1.9, (6)", "coverage": "Cumulants for unital linear maps of commutative algebras and Leonov–Shiryaev formula."}
+  ],
+  "formal_source": {
+    "commit": "6a3b29c88128eeed17f731783f03e7f9ff92ae62",
+    "url": "https://github.com/the-omega-institute/trureturing/blob/6a3b29c88128eeed17f731783f03e7f9ff92ae62/D5/S3/Combinatorics/PowerSeries/KurkovA263634LogPolynomials.lean",
+    "namespace": "D5.S3.Combinatorics.PowerSeries.KurkovA263634LogPolynomials",
+    "declarations": [
+      {"name": "result", "proposition": "Existence of IsSourceFamily and R(n,1)=L_n for all n>=1 over MvPolynomial Nat Rat."},
+      {"name": "quotient_jet", "proposition": "R(n+1,k)=jet_n(F^(k)/F) for k>=1.", "visibility": "private helper"}
+    ],
+    "logarithmic_derivative_dependency_url": "https://github.com/the-omega-institute/trureturing/blob/6a3b29c88128eeed17f731783f03e7f9ff92ae62/D5/S3/Combinatorics/PowerSeries/PositiveNewtonSums.lean"
+  },
+  "finite_verification": {
+    "program": "verify.py",
+    "output": "verification.json",
+    "arithmetic": "exact rational sparse polynomials",
+    "all_column_cases": 60,
+    "rows": [1, 10],
+    "columns": [1, 6],
+    "initial_oeis_coefficients": 44,
+    "moment_appell_and_signed_A130850_degrees": [0, 9],
+    "cycle_bell_lah_rows": [1, 7],
+    "exponential_polynomial_example_rows": [1, 10]
+  },
+  "scope": "General results have written proofs; the pinned formal declarations have the propositions specified above; the Python comparisons have the stated finite ranges."
+}

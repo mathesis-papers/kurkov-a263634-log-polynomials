@@ -1,0 +1,399 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[colorlinks=true,allcolors=blue,breaklinks=true]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\xt}{\mathbf x}
+\title{An alternative proof of Kurkov's logarithmic-polynomial recursion
+and its Leonov--Shiryaev interpretation}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\\small National University of Singapore\\\small ChronoAI Pte Ltd, Singapore}
+\date{14 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give an alternative proof of Mikhail Kurkov's conjecture in OEIS A263634, FORMULA of
+30 March 2025 (entry revision \#166, 5 November 2025), identifying its
+all-column array as a specialization of the Leonov--Shiryaev
+product-cumulant theorem (1959).
+The quotient method appears in xpaul (2019), and IV\_ (2020)
+connects its first column to logarithmic polynomials.
+For Kurkov's quadratic recursive array we establish the all-column identity
+$R(n,k)=(n-1)![t^{n-1}]F^{(k)}(t)/F(t)$, where
+$F(t)=1+\sum_{i\geq1}x_it^i/i!$.
+Differentiating these quotients gives the recurrence directly.
+We also rederive classical coefficient and Appell identities, correct a
+factorial normalization in the source's Appell comments, and recover
+the exponential-polynomial exception of Craven and Csordas (1994).
+\end{abstract}
+
+\section{The conjecture and the quotient identity}
+Kurkov asks whether the recursively defined $R(n,1)$ equals the $n$th
+logarithmic polynomial. The quotient formula in Theorem~\ref{thm:main}
+answers this for every $n$ and describes every positive column as well.
+Work in $A=\Q[x_1,x_2,\ldots]$ and $A[[t]]$. Define $L_0=0$ and
+\begin{equation}\label{eq:log}
+ F(t)=1+\sum_{i\geq1}x_i\frac{t^i}{i!},\qquad
+ \log F(t)=\sum_{n\geq1}L_n\frac{t^n}{n!}.
+\end{equation}
+The logarithm is the formal sum $\sum_{m\geq1}(-1)^{m-1}(F-1)^m/m$;
+each coefficient is a finite sum. The $L_n$ are also the cumulant
+polynomials recorded in OEIS A127671, in a different monomial order
+\cite{oeis,oeis127671}. Kurkov's conjecture concerns a particular
+quadratic recursion for these already known polynomials, not their
+existence or their classical coefficient formula.
+The differential recurrence behind the proof has a prior quotient
+representation in xpaul's 21 March 2019 answer~\cite{xpaul};
+IV\_ related its repeated derivatives to logarithmic polynomials
+on 15 July 2020~\cite{iv}. We give the explicit coefficient translation
+to Kurkov's array. More generally, the all-column array is a specialization
+of the Leonov--Shiryaev product-cumulant theorem (1959)~\cite{ls}.
+We make that specialization explicit below, using the two-factor formula
+proved by Beuman, Turner and Vitelli~\cite[Appendix A, (A10)--(A15)]{btv}
+and Burchardt's algebraic formulation~\cite[Section 1.2, Theorem 1.9]{burchardt}.
+The same conjecture was posed as the middle case of a three-weight
+question on MathOverflow on 21 March 2025~\cite{mo}; we treat the
+logarithmic-polynomial weight here.
+The moment recurrence is classical
+\cite[Section 1.2, p.~4]{novak}, and the Appell recurrence below
+was given by Copeland~\cite[Part II, p.~3]{copeland}; the Appell
+generating-function framework also appears in
+Anshelevich~\cite[Section 1, (1); Section 2.2]{anshelevich}.
+
+For $n,k\geq1$, set $R(1,k)=x_k$ and, for $n\geq2$, set
+\begin{equation}\label{eq:rec}
+ R(n,k)=R(n-1,k+1)-\sum_{j=1}^{n-1}
+ \binom{n-2}{j-1}R(j,k)R(n-j,1).
+\end{equation}
+These formulas define all columns by induction on $n$.
+
+\begin{theorem}\label{thm:main}
+For every $n,k\geq1$,
+\begin{equation}\label{eq:quotient}
+ R(n,k)=(n-1)![t^{n-1}]\frac{F^{(k)}(t)}{F(t)}.
+\end{equation}
+In particular $R(n,1)=L_n$. The identity remains valid after
+substitution of the $x_i$ by arbitrary elements of any commutative
+$\Q$-algebra.
+\end{theorem}
+\begin{proof}
+The series $F$ is invertible because $F(0)=1$. Put $Q_k=F^{(k)}/F$.
+The formal product rule, applied to $FQ_k=F^{(k)}$, gives
+\begin{equation}\label{eq:diff}
+ Q_k'=Q_{k+1}-Q_kQ_1,\qquad Q_k(0)=x_k\quad(k\geq1).
+\end{equation}
+Write $Q_k=\sum_{m\geq0}q_{m,k}t^m/m!$. For $m\geq0$,
+coefficient extraction from \eqref{eq:diff} gives
+\[
+ q_{m+1,k}=q_{m,k+1}-\sum_{r=0}^m\binom mr q_{r,k}q_{m-r,1}.
+\]
+With $m=n-2$ and $j=r+1$, this is precisely \eqref{eq:rec}
+for $q_{n-1,k}$, with the same initial values. Simultaneous induction
+on $n$ over all $k\geq1$ proves \eqref{eq:quotient}.
+Termwise differentiation of the formal logarithm gives
+$(\log F)'=F'/F=Q_1$. Its coefficient of $t^{n-1}/(n-1)!$
+is $L_n$, which proves the conjecture. All operations commute with
+homomorphisms of commutative $\Q$-algebras, proving the last assertion.
+\end{proof}
+
+For example,
+\[
+ R(2,k)=x_{k+1}-x_kx_1,\qquad
+ R(3,k)=x_{k+2}-2x_1x_{k+1}+2x_1^2x_k-x_2x_k.
+\]
+Thus $L_1=x_1$, $L_2=x_2-x_1^2$, and
+$L_3=x_3-3x_1x_2+2x_1^3$, agreeing with the source examples.
+
+\paragraph{Classical mixed-cumulant interpretation.}
+Put $x_0=1$ and define the unital $A$-linear map
+$\Phi:A[Z]\longrightarrow A$ by $\Phi(Z^i)=x_i$.
+Joint cumulants $\kappa(Y_1,\ldots,Y_r)$ are the coefficients
+$[s_1\cdots s_r]\log\Phi(\exp(\sum_i s_iY_i))$.
+This is the commutative-algebra setting of
+Burchardt~\cite[Section 1.2, (3)]{burchardt}; no positivity assumption
+on $\Phi$ is required. Formal differentiation gives
+\[
+ \sum_{m\geq0}\kappa(Z^k,\underbrace{Z,\ldots,Z}_{m})\frac{t^m}{m!}
+ =\left.\frac{\partial}{\partial s}\log\Phi(e^{sZ^k+tZ})\right|_{s=0}
+ =\frac{F^{(k)}(t)}{F(t)}.
+\]
+Thus $K(n,k)=\kappa(Z^k,\underbrace{Z,\ldots,Z}_{n-1})$
+equals $R(n,k)$ by Theorem~\ref{thm:main}.
+The two-factor product-cumulant identity~\cite[(A10)]{btv} is
+\[
+ \kappa(UV,Z_1,\ldots,Z_q)
+ =\kappa(U,V,Z_1,\ldots,Z_q)
+ +\sum_{S\subseteq\{1,\ldots,q\}}
+   \kappa(U,Z_S)\kappa(V,Z_{S^c}),
+\]
+where $Z_S$ denotes the list indexed by $S$, including the empty list.
+Choose $U=Z^k$, $V=Z$, $q=n-2$ and $Z_i=Z$.
+The left side becomes $K(n-1,k+1)$ and the first term is $K(n,k)$.
+There are $\binom{n-2}{j-1}$ subsets of size $j-1$, each contributing
+$K(j,k)K(n-j,1)$. Rearranging gives exactly \eqref{eq:rec}.
+This identifies the whole indexed array as a specialization of the
+previously proved product-cumulant formula.
+
+\section{Coefficient and Appell consequences}
+\begin{corollary}\label{cor:coeff}
+If $a_1,\ldots,a_n\geq0$, $\sum_{i=1}^n ia_i=n$, and
+$m=\sum_{i=1}^na_i$, then
+\begin{equation}\label{eq:coeff}
+ [x_1^{a_1}\cdots x_n^{a_n}]L_n
+ =\frac{(-1)^{m-1}(m-1)!\,n!}{\prod_{i=1}^n a_i!(i!)^{a_i}}.
+\end{equation}
+Every partition of $n$ contributes exactly one nonzero monomial.
+Consequently $L_n$ has $p(n)$ terms, and $L_n(1,\ldots,1)=0$
+for $n>1$, with $L_1(1)=1$.
+\end{corollary}
+\begin{proof}
+In the defining sum for $\log F$, this monomial occurs only in
+$(F-1)^m$. Its coefficient there is $m!/\prod a_i!$ times
+$\prod(i!)^{-a_i}$. Multiplying by $(-1)^{m-1}/m$ and by $n!$
+proves \eqref{eq:coeff}. The displayed number is nonzero. The exponent
+vectors are exactly the integer partitions of $n$ in multiplicity
+notation. Substituting $x_i=1$ in \eqref{eq:log} gives $F=e^t$ and
+$\log F=t$, proving the row-sum statement.
+\end{proof}
+
+The absolute value in \eqref{eq:coeff} is an integer: $n!/
+\prod a_i!(i!)^{a_i}$ counts partitions of an $n$-element labelled set
+with $a_i$ blocks of size $i$, and $(m-1)!$ is an integer.
+The substitution $x_i=z$ gives
+\begin{equation}\label{eq:stirling}
+ L_n(z,z,\ldots)=\sum_{m=1}^n(-1)^{m-1}(m-1)!
+ \left\{\begin{matrix}n\\m\end{matrix}\right\}z^m.
+\end{equation}
+Indeed, summing the set-partition counts above over exponent vectors
+with $m$ blocks gives the Stirling number in braces. This is the
+signed A028246 specialization mentioned in A263634.
+
+\begin{corollary}\label{cor:appell}
+Set $x_0=1$ and define $P_n(z)$ by
+$F(t)e^{zt}=\sum_{n\geq0}P_n(z)t^n/n!$. Then
+\begin{align}
+ x_{n+1}&=\sum_{j=0}^n\binom nj L_{j+1}x_{n-j},\label{eq:moment}\\
+ P_{n+1}(z)&=zP_n(z)+\sum_{j=0}^n\binom nj L_{j+1}P_{n-j}(z).
+ \label{eq:appell}
+\end{align}
+\end{corollary}
+\begin{proof}
+Multiplying $(\log F)'$ by $F$ gives $F'$, so coefficient extraction
+gives \eqref{eq:moment}. Differentiating $F(t)e^{zt}$ with respect
+to $t$ gives $(z+(\log F)')F(t)e^{zt}$, which gives
+\eqref{eq:appell}. These identities include $n=0$.
+\end{proof}
+The following additional source identities have short formal proofs.
+Write $I_m=m![t^m]F^{-1}$. Then
+\begin{equation}\label{eq:inverse}
+ R(n,k)=\sum_{r=0}^{n-1}\binom{n-1}{r}x_{k+r}I_{n-1-r}.
+\end{equation}
+This follows by multiplying $F^{(k)}$ and $F^{-1}$. The $I_m$ are
+the reciprocal polynomials of A133314. If $U_n(z)$ has generating
+function $F^{-1}e^{zt}$, the proof of \eqref{eq:appell} gives
+$U_{n+1}=zU_n-\sum_{j=0}^n\binom nj L_{j+1}U_{n-j}$.
+For any $G(0)=1$, let $T_G(z^n)=n![t^n]G(t)e^{zt}$ and extend
+linearly. Applying this to the generating function shows
+$T_GT_H=T_{GH}$, hence $T_FT_{F^{-1}}$ is the identity. This proves
+the source's umbral inverse claim.
+
+For the three exponential families in the source, define
+\[
+ \begin{split}
+ \sum_{n\geq0}C_n(a)\frac{t^n}{n!}&=\exp\!\left(\sum_{i\geq1}a_i\frac{t^i}{i}\right),\\
+ \sum_{n\geq0}B_n(b)\frac{t^n}{n!}&=\exp\!\left(\sum_{i\geq1}b_i\frac{t^i}{i!}\right),\\
+ \sum_{n\geq0}H_n(c)\frac{t^n}{n!}&=\exp\!\left(\sum_{i\geq1}c_it^i\right).
+ \end{split}
+\]
+These are the cycle-index, Bell, and refined Lah families of
+A036039, A036040, and A130561, respectively~\cite{oeisfamilies}.
+Taking formal logarithms gives
+\begin{equation}\label{eq:families}
+ L_n(C_1,\ldots,C_n)=(n-1)!a_n,\quad
+ L_n(B_1,\ldots,B_n)=b_n,\quad
+ L_n(H_1,\ldots,H_n)=n!c_n.
+\end{equation}
+Conversely, $\exp(\log F)=F$ gives the inverse substitutions
+\[
+ x_n=C_n\left(\frac{L_1}{0!},\ldots,\frac{L_n}{(n-1)!}\right)
+ =B_n(L_1,\ldots,L_n)
+ =H_n\left(\frac{L_1}{1!},\ldots,\frac{L_n}{n!}\right).
+\]
+Thus the source's six substitutions A--F follow, with their stated
+factorial conventions. With the Faber convention
+$-\log(1+\sum_{i\geq1}b_it^i)=\sum_{n\geq1}\Phi_n(b)t^n/n$
+of A263916, coefficient comparison gives
+$L_n=-(n-1)!\Phi_n(x_1/1!,\ldots,x_n/n!)$.
+
+The matrix formula in the source also follows from \eqref{eq:appell}.
+Put $S_{n,k}=\binom nk x_{n-k}$ for $0\leq k\leq n$, and put
+$M_{n,k}=1$ when $k=n+1$ and $0$ otherwise. Since
+$P_n=\sum_{k=0}^nS_{n,k}z^k$,
+\[
+ D^jP_n=\frac{n!}{(n-j)!}P_{n-j},\qquad
+ \mathcal R=z+\sum_{j\geq0}\frac{L_{j+1}}{j!}D^j
+\]
+give $\mathcal RP_n=P_{n+1}$ and $S\mathcal R=MS$ in the monomial
+basis. Here $S^{-1}_{n,k}=\binom nk I_{n-k}$ by $FF^{-1}=1$.
+Therefore the matrix is $S^{-1}MS$, with first superdiagonal $1$
+and entries $\binom nk L_{n+1-k}$ for $k\leq n$.
+All rows in these products have finite support.
+
+Finally, let $T_n(w)$ denote the row polynomial of A130850, with
+\[
+ \sum_{n\geq0}T_n(w)\frac{t^n}{n!}
+ =\frac{w}{(1+w)e^{-wt}-1}.
+\]
+On substituting $x_i=z^{i-1}$, the logarithmic derivative is
+$z/(1+(z-1)e^{-zt})$. Replacing $z$ by $-w$ identifies it with
+the preceding generating function at $-t$. Hence
+$L_{n+1}(1,z,z^2,\ldots)=(-1)^nT_n(-z)$, the signed specialization
+in the source's 14 November 2016 comment.
+The rational calculations may be performed in $\Q(z)[[t]]$;
+the resulting identities are polynomial identities in $z$.
+
+\section{Normalization and repeated Appell zeros}
+The 17 May 2020 comment in A263634 considers
+\begin{equation}\label{eq:canonical}
+ F(t)=e^{bt}\prod_{j=1}^d(1-t/\rho_j)e^{t/\rho_j},
+ \qquad \rho_j\in\mathbb R\setminus\{0\}.
+\end{equation}
+Expanding each logarithm gives
+\begin{equation}\label{eq:normalization}
+ L_1=b,\qquad L_n=-(n-1)!\sum_{j=1}^d\rho_j^{-n}\quad(n\geq2).
+\end{equation}
+Thus, for the power sums $c_n=\sum_j\rho_j^{-n}$ used in that
+comment, the correct relation is $c_n=-L_n/(n-1)!$, rather than
+$c_n=-L_n$. The same relation holds for an infinite product with
+$\sum_j\rho_j^{-2}<\infty$: for sufficiently small $|t|$, the sum
+of the absolute values of the logarithmic tails is bounded by a
+constant times $|t|^2\sum_j\rho_j^{-2}$. This justifies coefficient
+comparison. A Gaussian factor $e^{-at^2}$ changes only $L_2$, by
+$-2a$.
+
+The hypotheses in that comment also permit repeated Appell zeros.
+In \eqref{eq:canonical} take $d=1$, $\rho_1=1$, and $b=0$, so that
+$F=(1-t)e^t$. Then
+\[
+ L_3=-2,\quad c_3=1,\qquad
+ P_n(z)=(z+1)^n-n(z+1)^{n-1},\qquad
+ P_3(z)=(z+1)^2(z-2).
+\]
+This gives both a normalization counterexample and a double Appell
+zero under the stated assumptions. More generally, if
+$F(t)=e^{\beta t}p(t)$ with $p(0)=1$ and $\deg p=d$, then
+\begin{equation}\label{eq:multiplicity}
+ P_n(z)=p(D)(z+\beta)^n
+\end{equation}
+by coefficient extraction. For $n>d$, the zero at $z=-\beta$
+has multiplicity exactly $n-d$: the highest derivative
+term is a nonzero multiple of $(z+\beta)^{n-d}$ and all other
+terms have larger exponent. This is the exponential-polynomial
+exception in Craven and Csordas~\cite[Proposition 4.1(2)]{craven}
+when $F$ belongs to the Laguerre--P\'olya class and $\beta\ne0$;
+the displayed algebraic argument also covers arbitrary $p$ and $\beta=0$.
+In particular universal simplicity requires additional hypotheses.
+
+\section{Source coverage}
+Dates below refer to A263634 unless an entry is named explicitly.
+\begin{center}\small
+\begin{tabular}{@{}p{.48\linewidth}p{.45\linewidth}@{}}
+\toprule
+Source statement & Coverage\\\midrule
+Kurkov, FORMULA, 30 March 2025 & Alternative proof: Theorem~\ref{thm:main}; all-column Leonov--Shiryaev specialization.\\
+Row count and row sums; examples & Proved: Corollary~\ref{cor:coeff}.\\
+Constant-variable specialization, 6 November 2015 & Reproved: \eqref{eq:stirling}; signed A028246.\\
+Moment/Appell identities, 13 September 2016 & Reproved; prior formulas: Novak (2012), Copeland (2015).\\
+Reciprocal and matrix comments, 2015--2016 & Proved above: $T_F^{-1}=T_{F^{-1}}$ and $S^{-1}MS$.\\
+Six substitutions A--F, 8--12 September 2016 & Proved: \eqref{eq:families} and inverse substitutions.\\
+A127671, A263916: cumulant/Faber relation & Reproved: coefficient comparison above.\\
+Signed A130850, 14 November 2016 & Proved by the displayed generating functions.\\
+Power-sum normalization, 17 May 2020 & Refuted-and-corrected: \eqref{eq:normalization}.\\
+Universal simplicity in the same comment & Refuted: $(z+1)^2(z-2)$; the finite-product multiplicity is \eqref{eq:multiplicity}, as in Craven--Csordas (1994).\\
+Stable graphs, Hopf algebras, and historical attributions & Not covered as separate results.\\
+A263633, A178867; Lagrange inversion in A134264 & Not covered as separate results.\\
+\bottomrule
+\end{tabular}
+\end{center}
+The remaining cross-references A000041, A007318, A129185, A133314,
+and A154921 supply, respectively, partition counts, Pascal coefficients,
+the shift matrix, reciprocal polynomials, and the specialization
+$F=2-e^t$ of the reciprocal Appell family.
+
+\section{Mathematical verification coverage}
+The pinned file
+\href{https://github.com/the-omega-institute/trureturing/blob/6a3b29c88128eeed17f731783f03e7f9ff92ae62/D5/S3/Combinatorics/PowerSeries/KurkovA263634LogPolynomials.lean}{\small\texttt{KurkovA263634LogPolynomials.lean}}
+defines \texttt{sourceSeries}, \texttt{IsSourceFamily}, and the array
+\texttt{R}. Its declaration \texttt{result} states existence of the logarithmic family and
+$R(n,1)=L_n$ for every $n\geq1$ over $\Q[x_1,x_2,\ldots]$.
+The helper \texttt{quotient\_jet} expresses the all-column identity
+\eqref{eq:quotient}. Its logarithmic-derivative dependency is
+\href{https://github.com/the-omega-institute/trureturing/blob/6a3b29c88128eeed17f731783f03e7f9ff92ae62/D5/S3/Combinatorics/PowerSeries/PositiveNewtonSums.lean}{\texttt{PositiveNewtonSums.lean}}.
+The general substitution, coefficient, Appell, and zero-multiplicity
+statements have the written proofs given above. The accompanying
+\texttt{verify.py} uses exact rational polynomial arithmetic to compare
+the quadratic recurrence, formal logarithm, partition coefficients,
+and quotient coefficients for $1\leq n\leq10$, $1\leq k\leq6$;
+it also checks the moment and Appell identities through degree $9$
+and the first $44$ coefficients of A263634. These are finite checks.
+
+\begin{thebibliography}{99}
+\bibitem{oeis} The OEIS Foundation Inc., \emph{A263634: logarithmic
+polynomials}, revision \#166, 5 November 2025. Conjecture by Mikhail
+Kurkov, FORMULA, 30 March 2025.
+\url{https://oeis.org/A263634}.
+\bibitem{oeis127671} The OEIS Foundation Inc., \emph{A127671:
+cumulant expansion numbers}, revision \#88, 4 February 2026.
+\url{https://oeis.org/A127671}.
+\bibitem{xpaul} xpaul, answer to \emph{Simplify recurrence
+$f'_{n-1}=f_n-f_{n-1}f_1$}, Mathematics Stack Exchange,
+21 March 2019. \url{https://math.stackexchange.com/a/3156943}.
+\bibitem{iv} IV\_, answer on repeated derivatives for
+$f'_{k-1}=f_k-f_{k-1}f_1$, Mathematics Stack Exchange,
+15 July 2020. \url{https://math.stackexchange.com/a/3758094}.
+\bibitem{novak} J. Novak, with illustrations by M. LaCroix,
+\emph{Three lectures on free probability}, arXiv:1205.2097v1 (2012),
+Section 1.2, pp.~4--6. \url{https://arxiv.org/abs/1205.2097v1}.
+\bibitem{copeland} T. Copeland, \emph{The creation / raising
+operators for Appell sequences}, 2015, Part II, p.~3.
+\url{https://tcjpn.wordpress.com/wp-content/uploads/2015/12/appell-raising-op1.pdf}.
+\bibitem{craven} T. Craven and G. Csordas, \emph{Differential
+operators of infinite order and the distribution of zeros of entire
+functions}, J. Math. Anal. Appl. \textbf{186} (1994), 799--820,
+Proposition 4.1(2). \url{https://doi.org/10.1006/jmaa.1994.1334}.
+\bibitem{oeisfamilies} The OEIS Foundation Inc., entries
+\href{https://oeis.org/A036039}{A036039},
+\href{https://oeis.org/A036040}{A036040},
+\href{https://oeis.org/A130561}{A130561},
+\href{https://oeis.org/A133314}{A133314},
+\href{https://oeis.org/A028246}{A028246},
+\href{https://oeis.org/A130850}{A130850}, and
+\href{https://oeis.org/A263916}{A263916}, accessed 14 November 2026.
+\bibitem{ls} V. P. Leonov and A. N. Shiryaev, \emph{On a method
+of calculation of semi-invariants}, Theory Probab. Appl. \textbf{4}
+(1959), 319--329. \url{https://doi.org/10.1137/1104031}.
+\bibitem{btv} T. H. Beuman, A. M. Turner and V. Vitelli,
+\emph{Extrema statistics in the dynamics of a non-Gaussian random field},
+arXiv:1211.0993v1 (2012), Appendix A, (A10)--(A15);
+Phys. Rev. E \textbf{87} (2013), 022142.
+\url{https://arxiv.org/abs/1211.0993v1}.
+\bibitem{burchardt} A. Burchardt, \emph{Algebras with two
+multiplications and their cumulants}, arXiv:1803.09322v1 (2018),
+Section 1.2 and Theorem 1.9.
+\url{https://arxiv.org/abs/1803.09322v1}.
+\bibitem{anshelevich} M. Anshelevich, \emph{Appell polynomials
+and their relatives}, arXiv:math/0311043v3 (2004), Section 1, (1), and Section 2.2.
+\url{https://arxiv.org/abs/math/0311043v3}.
+\bibitem{mo} user231922, \emph{Similar recursions for complicated
+partition polynomials}, MathOverflow question 489828,
+21 March 2025. \url{https://mathoverflow.net/q/489828}.
+\end{thebibliography}
+\medskip\noindent\small
+\copyright\ 2026 Haobo Ma and Wenlin Zhang.
+Licensed under Creative Commons Attribution 4.0 International
+(CC BY 4.0).
+\end{document}

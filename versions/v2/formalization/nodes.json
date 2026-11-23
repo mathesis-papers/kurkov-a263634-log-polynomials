@@ -1,0 +1,124 @@
+{
+  "nodes": [
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s1",
+      "contributor": null,
+      "identity": "collected:kurkov-a263634-log-polynomials:2:s1",
+      "kind": "paper",
+      "label": "Theorem",
+      "lean_source": {
+        "revision": "6a3b29c88128eeed17f731783f03e7f9ff92ae62",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/6a3b29c88128eeed17f731783f03e7f9ff92ae62/D5/S3/Combinatorics/PowerSeries/KurkovA263634LogPolynomials.lean"
+      },
+      "lineage": "collected:kurkov-a263634-log-polynomials:s1",
+      "macros": {
+        "\\Q": "\\mathbb Q",
+        "\\xt": "\\mathbf x"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "kurkov-a263634-log-polynomials",
+      "scope": "in_scope",
+      "statement": "For every $n,k\\geq1$,\n\\begin{equation}\n R(n,k)=(n-1)![t^{n-1}]\\frac{F^{(k)}(t)}{F(t)}.\n\\end{equation}\nIn particular $R(n,1)=L_n$. The identity remains valid after\nsubstitution of the $x_i$ by arbitrary elements of any commutative\n$\\Q$-algebra.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "An alternative proof of Kurkov's logarithmic-polynomial recursion and its Leonov–Shiryaev interpretation",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurkov-a263634-log-polynomials"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s2",
+      "contributor": null,
+      "identity": "collected:kurkov-a263634-log-polynomials:2:s2",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "6a3b29c88128eeed17f731783f03e7f9ff92ae62",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/6a3b29c88128eeed17f731783f03e7f9ff92ae62/D5/S3/Combinatorics/PowerSeries/KurkovA263634LogPolynomials.lean"
+      },
+      "lineage": "collected:kurkov-a263634-log-polynomials:s2",
+      "macros": {
+        "\\Q": "\\mathbb Q",
+        "\\xt": "\\mathbf x"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "kurkov-a263634-log-polynomials",
+      "scope": "in_scope",
+      "statement": "If $a_1,\\ldots,a_n\\geq0$, $\\sum_{i=1}^n ia_i=n$, and\n$m=\\sum_{i=1}^na_i$, then\n\\begin{equation}\n [x_1^{a_1}\\cdots x_n^{a_n}]L_n\n =\\frac{(-1)^{m-1}(m-1)!\\,n!}{\\prod_{i=1}^n a_i!(i!)^{a_i}}.\n\\end{equation}\nEvery partition of $n$ contributes exactly one nonzero monomial.\nConsequently $L_n$ has $p(n)$ terms, and $L_n(1,\\ldots,1)=0$\nfor $n>1$, with $L_1(1)=1$.",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "An alternative proof of Kurkov's logarithmic-polynomial recursion and its Leonov–Shiryaev interpretation",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurkov-a263634-log-polynomials"
+    },
+    {
+      "attribution": null,
+      "authors": [
+        {
+          "affiliation": "ChronoAI Pte Ltd, Singapore",
+          "name": "Haobo Ma"
+        },
+        {
+          "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+          "name": "Wenlin Zhang"
+        }
+      ],
+      "claim": "s3",
+      "contributor": null,
+      "identity": "collected:kurkov-a263634-log-polynomials:2:s3",
+      "kind": "paper",
+      "label": "Corollary",
+      "lean_source": {
+        "revision": "6a3b29c88128eeed17f731783f03e7f9ff92ae62",
+        "url": "https://github.com/the-omega-institute/trureturing/blob/6a3b29c88128eeed17f731783f03e7f9ff92ae62/D5/S3/Combinatorics/PowerSeries/KurkovA263634LogPolynomials.lean"
+      },
+      "lineage": "collected:kurkov-a263634-log-polynomials:s3",
+      "macros": {
+        "\\Q": "\\mathbb Q",
+        "\\xt": "\\mathbf x"
+      },
+      "next_step": "Existing Lean evidence is being checked before new proof work.",
+      "proof_basis": null,
+      "proof_state": "preparing",
+      "receipt": null,
+      "record": "kurkov-a263634-log-polynomials",
+      "scope": "in_scope",
+      "statement": "Set $x_0=1$ and define $P_n(z)$ by\n$F(t)e^{zt}=\\sum_{n\\geq0}P_n(z)t^n/n!$. Then\n\\begin{align}\n x_{n+1}&=\\sum_{j=0}^n\\binom nj L_{j+1}x_{n-j},\\\\\n P_{n+1}(z)&=zP_n(z)+\\sum_{j=0}^n\\binom nj L_{j+1}P_{n-j}(z).\n \n\\end{align}",
+      "status": "preparing",
+      "target_digest": null,
+      "title": "An alternative proof of Kurkov's logarithmic-polynomial recursion and its Leonov–Shiryaev interpretation",
+      "toolchain": null,
+      "version": 2,
+      "work": "kurkov-a263634-log-polynomials"
+    }
+  ]
+}
