@@ -24,7 +24,7 @@
     "CONTRIBUTING.md": "fafd66e63160b2a88f433af56d2af2b0f7bf6ed2fd417d46b54446ce07c627ff",
     "LICENSES/CC-BY-4.0.txt": "58230517b7895aa219ff46a6ed63e67057a1582fb9ea054b16728a8c13525650",
     "README.md": "0628c558c108a523d8e20f7fa53a7b26fcc287ad6f134a11ee547720715ea734",
-    "formalization/nodes.json": "7d9a6c3f8fd692532bc493d54cc83e7e8a260fc60b414aebde1583ae57b5e73d",
+    "formalization/nodes.json": "f348f17d0e8505247702dd131c0fbaf0f81be2f683a0806c35a9e1be2145dd78",
     "manuscript/kurkov-logarithmic-polynomials/README.md": "8f9bd4c7939280d23d2ff078ae654f0c743a1708fc6c8fd406cc9d1b18441969",
     "manuscript/kurkov-logarithmic-polynomials/metadata.json": "be35f6d91a5be53d991f4b4d38e098a99c0bcf8e4a3ca947e37f0c94988d51ee",
     "manuscript/kurkov-logarithmic-polynomials/note.tex": "04501ae70d6b4531c95cd062037bad27b41523793900fffa9a7005c54983d50e",
@@ -36,5 +36,5 @@
     "paper.pdf": "0f33209f73120e56f29fde57ba084c81b72251daab83932100276532f8e95666",
     "source.archive": "6e9af6eea9f7424e9293a59d7bce6d86285806c7fd2fb415e6877506ded4d0f7"
   },
-  "snapshot_identity": "ef0a10a8717ee05cd59c000307ef013950e82348d2af66c603223825de5c9581"
+  "snapshot_identity": "af1c4946702605485bbbd3c04c2fecf48bc226295c29fafcbae8f530a3cf5084"
 }
