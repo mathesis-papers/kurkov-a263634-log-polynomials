@@ -32,9 +32,9 @@
     "manuscript/kurkov-logarithmic-polynomials/source-manifest.sha256": "d5bf209ff8e131059cc53e95ded50fcaf8449c63ab510f28aacd9276435d043c",
     "manuscript/kurkov-logarithmic-polynomials/verification.json": "b78166fa1efd53db5cd8827561fa84f28a261188a8fe523b801a246d8f288668",
     "manuscript/kurkov-logarithmic-polynomials/verify.py": "bb6b3ed44421495e0f12359af7952874a56704e231eb937f0c66d5547b1e4e52",
-    "paper.json": "2e8cb34f027006e9120725fab9b9724d08e9df0e095d541128fe56ca5ef5169d",
+    "paper.json": "90d88d4dccb931c82b6750a9053dd3e98f09efd9e113cffee6ba4b7cc59ae66a",
     "paper.pdf": "0f33209f73120e56f29fde57ba084c81b72251daab83932100276532f8e95666",
     "source.archive": "6e9af6eea9f7424e9293a59d7bce6d86285806c7fd2fb415e6877506ded4d0f7"
   },
-  "snapshot_identity": "af1c4946702605485bbbd3c04c2fecf48bc226295c29fafcbae8f530a3cf5084"
+  "snapshot_identity": "c35ddd3b6b958b3bebfffd2c047263470188e5c6475ba307a50477bebacac1d1"
 }
